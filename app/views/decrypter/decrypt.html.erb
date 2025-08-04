@@ -1,0 +1,20 @@
+<div style="background-color:lightblue; padding:15px;width:300px">
+<h1>Şifreli Dosyayı Çöz</h1>
+<%= form_with url: upload_decrypted_file_path, method: :post, local: true, html: { multipart: true } do |form| %>
+  <div style="margin-bottom: 15px;">
+    <%= form.label :encrypted_file, "Şifreli Dosyayı Seçin:" %><br>
+    <%= form.file_field :encrypted_file %>
+  </div>
+  <div>
+    <%= form.submit "Şifreyi Çöz" %>
+  </div>
+<% end %>
+
+<% if @decrypted_content.present? %>
+  <h2>Çözülmüş Metin:</h2>
+  <pre style="background-color: #f0f0f0; padding: 10px;width:200px; border: 1px solid #ccc;"><%= @decrypted_content %></pre>
+<% elsif @error_message.present? %>
+  <h2 style="color: red;">Hata:</h2>
+  <p><%= @error_message %></p>
+<% end %>
+</div>
