@@ -1,4 +1,4 @@
-<div style="background-color:lightblue; padding:15px;width:300px">
+<div style="background-color:lightblue; padding:15px;width:300px; border:2px solid gray; border-radius:10px">
 <h1>Şifreli Dosyayı Çöz</h1>
 <%= form_with url: upload_decrypted_file_path, method: :post, local: true, html: { multipart: true } do |form| %>
   <div style="margin-bottom: 15px;">
